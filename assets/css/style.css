@@ -1,0 +1,87 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #999999;
+}
+
+/* Barra de navegación */
+nav {
+    background-color: #00324D;
+    color: white;
+    padding: 10px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo img {
+    height: 100px; /* Ajusta el tamaño del logo según sea necesario */
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #ddd;
+}
+
+/* Quienes somos*/
+
+.quienessomos{
+    background-color: #FFFFFF;
+}
+
+.quienessomosh1{
+    font-family: Work Sans;
+    text-align: center;
+}
+
+
+.image-row {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.image-row img {
+    width: 100px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto; /* Mantiene la proporción de las imágenes */
+}
+
+
+
+/* fooder */
+
+footer {
+    background-color: #4D4D4D;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-content img {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-content p:first-child {
+    margin-bottom: 10px;
+}
