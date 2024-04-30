@@ -62,14 +62,16 @@ nav {
 }
 
 
-
 /* fooder */
 
 footer {
     background-color: #4D4D4D;
-    color: white;
-    padding: 20px 0;
     text-align: center;
+    font-family: sans-serif;
+    color: whitesmoke;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
 }
 
 .footer-content p {
@@ -85,3 +87,5 @@ footer {
 .footer-content p:first-child {
     margin-bottom: 10px;
 }
+
+

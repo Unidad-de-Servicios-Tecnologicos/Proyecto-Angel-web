@@ -15,8 +15,47 @@
                 <img src="assets/images/Logo Angel - Color_b_n-01.png" alt="Logo de la empresa">
             </a>
             <div class="nav-links">
-                <a href="#">INICIO DE SESIÓN</a>
-                <a href="#">REGISTRO</a>
+                <!-- Button INICIO DE SESION -->
+                <button type="button" class="btn bg-white text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <b>INICIO DE SESION</b>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn bg-white text-dark border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <b>INICIO DE SESION</b>
+                            <br>
+                            <button type="button" class="btn bg-white text-dark border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <b>REGISTRO</b>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="Nombre@gmail.com">
+                                <label for="floatingInput">Email</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+                                <label for="floatingPassword">Contraseña</label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                            <button type="button" class="btn btn-primary">INICIAR SESION</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Button REGISTRO -->
+                <a href="views/Login/registro.php" class="btn bg-white text-dark" role="button""><b>REGISTRO</b></a>
+                
+
+                
             </div>
         </div>
     </nav>
@@ -24,6 +63,7 @@
     <div class="quienessomos container">
         <h1 class="quienessomosh1">Quienes somos</h1>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, totam, nostrum hic neque possimus rem exercitationem, tenetur dolore recusandae quos reprehenderit! Sunt enim distinctio unde aliquam eius. Cumque, voluptas vero.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, totam, nostrum hic neque possimus rem exercitationem, tenetur dolore recusandae quos reprehenderit! Sunt enim distinctio unde aliquam eius. Cumque, voluptas vero
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus, totam, nostrum hic neque possimus rem exercitationem, tenetur dolore recusandae quos reprehenderit! Sunt enim distinctio unde aliquam eius. Cumque, voluptas vero.
         </p>
 
@@ -43,10 +83,12 @@
     <footer>
         <div class="footer-content">
             <p>© 2024 Mi Sitio Web. Todos los derechos reservados.</p>
-            <p>Realizado por</p>
+            <p>Realizado por
             <a class="nav-logo">
                 <img src="assets/images/Logo_Sena_Servicio_tecnológico_.png" alt="Logo dela ust">
             </a>
+            </p>
+            
         </div>
     </footer>
 
