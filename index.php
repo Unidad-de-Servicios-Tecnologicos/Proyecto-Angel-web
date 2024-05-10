@@ -14,37 +14,40 @@
             <a href="index.php" class="nav-logo">
                 <img src="assets/images/Logo Angel - Color_b_n-01.png" alt="Logo de la empresa">
             </a>
-            <div class="nav-links">
+            <div class="">
                 <!-- Button INICIO DE SESION -->
                 <button type="button" class="btn bg-white text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <b>INICIO DE SESION</b>
                 </button>
 
                 <!-- Modal -->
+                
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         <div class="modal-header">
-                            <button type="button" class="btn bg-white text-dark border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <b>INICIO DE SESION</b>
-                            <br>
-                            <button type="button" class="btn bg-white text-dark border-bottom" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <b>REGISTRO</b>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Inicio de sesion</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="Nombre@gmail.com">
-                                <label for="floatingInput">Email</label>
-                            </div>
-                            <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-                                <label for="floatingPassword">Contraseña</label>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
-                            <button type="button" class="btn btn-primary">INICIAR SESION</button>
+                            <form name="form" action="includes/login.php" onsubmit="return isvalid()" method="POST">
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="user" name="user" type="text" placeholder="nombre@sena.edu.co" />
+                                    <label for="inputEmail">Email</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="pass" name="pass" type="password" placeholder="Password" />
+                                    <label for="inputPassword">Contraseña</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                                    <label class="form-check-label" for="inputRememberPassword">Recordar contraseña</label>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                    <a class="small" href="password.html">Recuperar contraseña</a>
+                                    <input class="btn btn-primary" type="submit" id="btn" value="Inicio" name = "submit"/>
+                                </div>
+                            </form>
                         </div>
                         </div>
                     </div>
@@ -92,6 +95,26 @@
         </div>
     </footer>
 
+    <!-- validacion registro -->
+    <script>
+            function isvalid(){
+                var user = document.form.user.value;
+                var pass = document.form.pass.value;
+                if(user.length=="" && pass.length==""){
+                    alert(" El campo de email y contraseña se encuentra vacío!!!");
+                    return false;
+                }
+                else if(user.length==""){
+                    alert(" El campo de email se encuentra vacío!!!");
+                    return false;
+                }
+                else if(pass.length==""){
+                    alert(" El campo de contraseña se encuentra vacío!!!");
+                    return false;
+                }
+                
+            }
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
