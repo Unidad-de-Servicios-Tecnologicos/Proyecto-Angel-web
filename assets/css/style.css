@@ -8,40 +8,19 @@ body {
 /* Barra de navegación */
 nav {
     background-color: #00324D;
-    color: white;
     padding: 10px 0;
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .nav-logo img {
     height: 100px; /* Ajusta el tamaño del logo según sea necesario */
 }
 
-.nav-links {
-    display: flex;
-    gap: 15px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-}
-
-.nav-links a:hover {
-    color: #ddd;
-}
 
 /* Quienes somos*/
 
 .quienessomos{
-    background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
 }
 
 .quienessomosh1{
@@ -97,4 +76,5 @@ footer {
     margin-bottom: 10px;
 }
 
+#logo_ust { height: 150px; }
 

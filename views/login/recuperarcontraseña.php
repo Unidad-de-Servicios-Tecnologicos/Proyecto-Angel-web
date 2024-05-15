@@ -1,8 +1,3 @@
-<?php
-
-include_once '../templates/nav.php';
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,6 +10,13 @@ include_once '../templates/nav.php';
     <link rel="stylesheet" href="../../assets/css/style2.css">
 </head>
 <body>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark nav">
+        <div class="container">
+                <a href="../../index.php" class="nav-logo">
+                    <img src="../../assets/images/Logo Angel - Color_b_n-01.png" alt="Logo de la empresa">
+                </a>
+        </div>
+    </nav>
         <div id="layoutAuthentication">
                 <div id="layoutAuthentication_content">
                     <main>
@@ -36,31 +38,15 @@ include_once '../templates/nav.php';
                                                 </div>
                                             </form>
                                         </div>
-                                        <div class="card-footer text-center py-3">
-                                            <div class="small"><a href="registro.php">¿Necesito una cuenta? ¡Inscribirse!</a></div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </main>
                 </div>
-                <div id="layoutAuthentication_footer">
-                    <footer class="py-4 bg-light mt-auto">
-                        <div class="container-fluid px-4">
-                            <div class="d-flex align-items-center justify-content-between small">
-                                <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                                <div>
-                                    <a href="#">Privacy Policy</a>
-                                    &middot;
-                                    <a href="#">Terms &amp; Conditions</a>
-                                </div>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
+                
         </div>
-        
+        <br>
             
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -70,6 +56,6 @@ include_once '../templates/nav.php';
 
 <?php
 
-include_once '../templates/fooder.php';
+include_once '../templates/footer.php';
 
 ?>

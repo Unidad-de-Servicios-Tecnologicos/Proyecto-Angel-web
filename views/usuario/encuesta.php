@@ -68,6 +68,6 @@ include_once '../templates/nav.php';
 
 <?php
 
-include_once '../templates/fooder.php';
+include_once '../templates/footer.php';
 
 ?>
