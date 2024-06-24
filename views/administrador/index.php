@@ -1,139 +1,179 @@
 <?php 
-    session_start();
-    session_destroy();
-    
+
+  date_default_timezone_set("America/Lima");
+  $date = new DateTime();
+
+  $fecha_inicio = $date->format('Y-m-d H:i:s');
+  
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Administrador</title>
-        <link rel="icon" type="image/x-icon" href="../assets/img/Logo-de-SENA-png-verde-300x300-1.png" />
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="../../assets/css/styles2.css" rel="stylesheet" />
-        <link href="../../assets/css/style.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark nav">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.php">Administrador</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                <!--<input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>-->
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../../includes/logout.php">Cerrar sesión</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Inicio</div>
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.php">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.php">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.php">Login</a>
-                                            <a class="nav-link" href="register.php">Register</a>
-                                            <a class="nav-link" href="password.php">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-            
-            
+<html lang="es">
+<head>
+
+  	<!-- Required meta tags -->
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  	<!-- Bootstrap CSS -->
+  	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <!-- Favicon - FIS -->
+
+    <link rel="stylesheet" href="../../assets/css/main.css">
+
+    <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="../../assets/imagenes/LOGO FINAL.png">
+
+  	<title>ADMINISTRADOR</title>
+
+    <script type="text/javascript" language="javascript">   
+      history.pushState(null, null, location.href);
+      window.onpopstate = function () {
+        history.go(1);
+      };
+    </script>
+
+</head>
+<body>
+
+<?php
+    require '../templates/navbar.php';
+?>
+
+	<!-- Content Section -->
+	<div class="container" style="margin-top: 30px;">
+	    <div class="row">
+	        <div class="col-md-12 row">
+	        	<div class="col-md-10 col-xs-12">
+	        		<h3>SISTEMA DE ENCUESTAS</h3>
+	        	</div>
+            <br>
+            <br>
+	        	<div class="col-12">
+	        		 <button class="btn btn-success col-12" id="boton_agregar">
+	                    <b>Agregar Encuesta</b>
+	                </button>
+	        	</div>
+	        </div>
+	    </div>
+	    <hr/>
+	    <div class="row">
+	        <div class="col-md-12">
+	            <h4>Encuestas:</h4>
+	            <div class="table-responsive">
+	            	<div id="tabla_encuestas"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+  
 
 
+	<!-- /Content Section -->
 
 
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="../../public/js/jquery-3.3.1.min.js"></script>
+  <script src="../../public/js/popper.min.js"></script>
+  <script src="../../public/js/bootstrap.min.js"></script>
+  <script src="js/encuestas.js"></script>
 
-
-
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; 2023 SENNOVA.</div>
-                            <div>
-                                <a href="#">Politicas de privacidad</a>
-                                &middot;
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
-    </body>
+</body>
 </html>
+
+<!-- Modal Agregar Nueva Encuesta -->
+<div class="modal fade" id="modal_agregar" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+            	<h4 class="modal-title">Agregar Nueva Encuesta</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+            	<div class="form-group row">
+      					<label for="titulo" class="col-sm-3 col-form-label">Título</label>
+      					<div class="col-sm-9">
+      						<input type="text" class="form-control" id="titulo" placeholder="Título" autocomplete="off" autofocus>
+      					</div>
+      				</div>
+              <div class="form-group row">
+                <label for="descripcion" class="col-sm-3 col-form-label">Descripción</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" id="descripcion" placeholder="Descripción"></textarea>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="fecha_final" class="col-sm-3 col-form-label">Fecha Final</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="fecha_final" value="<?php echo $fecha_inicio ?>"  autocomplete="off">
+                  <p>Fomato: año-mes-día horas:minutos:segundos</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="agregarEncuesta()">Agregar Encuesta</button>
+                <input type="hidden" id="hidden_id_usuario" value="<?php echo $_SESSION['id_usuario'] ?>">
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal Modificar Producto -->
+<div class="modal fade " id="modal_modificar" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-header">
+            	<h4 class="modal-title">Modificar Producto</h4>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+            	<div class="form-group row">
+      					<label for="modificar_titulo" class="col-sm-3 col-form-label">Título</label>
+      					<div class="col-sm-9">
+      						<input type="text" class="form-control" id="modificar_titulo" placeholder="Título">
+      					</div>
+      				</div>
+
+              <div class="form-group row">
+                <label for="descripcion" class="col-sm-3 col-form-label">Descripción</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" id="modificar_descripcion" placeholder="Descripción"></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="fecha_final" class="col-sm-3 col-form-label">Fecha Final</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="modificar_fecha_final" placeholder="Fecha de Cierre" autocomplete="off"
+                  value="<?php echo $fecha_inicio ?>">
+                  <p>Fomato: año-mes-día horas:minutos:segundos</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="modificarDetallesEncuesta()">Modificar Encuesta</button>
+                <input type="hidden" id="hidden_id_encuesta">
+            </div>
+
+        </div>
+    </div>
+</div>

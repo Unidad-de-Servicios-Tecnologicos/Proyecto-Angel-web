@@ -1,19 +1,20 @@
 <?php
 
-// Datos de conexión a la base de datos
-$servername = "localhost"; 
-$username = "root"; 
-$password = ""; 
-$database = "angel"; 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sistema_encuestas";
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $database);
+// Creamos la conexión
+$con = new mysqli($servername, $username, $password, $dbname);
+mysqli_set_charset($con,"utf8");
 
-// Verificar conexión
-if ($conn->connect_error) {
+// Verificamos la conexión
+if ($con->connect_error) {
     die("Conexión fallida: " . $conn->connect_error);
+} else {
+	// echo "Conexión exitosa";
 }
 
-echo "Conexión exitosa";
 
-?>
+
