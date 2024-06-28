@@ -1,8 +1,10 @@
+import { spaceRegex, stringRegex } from "../utils/constants.js";
 
 const reducer = (type, value) => {
 
   let isValid = true
   let error = "";
+  let newValue = value;
 
   switch (type) {
 
@@ -10,6 +12,7 @@ const reducer = (type, value) => {
 
       isValid = !isNaN(value) && value >= 0 && value < 80;
       error = "El valor de los años de experiencia no es válido."
+      newValue = value.replace(spaceRegex, "").replace(stringRegex, "")
       break;
     }
 
@@ -23,6 +26,7 @@ const reducer = (type, value) => {
 
       isValid = value.length >= 3;
       error = "El valor debe ser mayo a 3 caracteres."
+      newValue = value.replace(spaceRegex, " ")
       break;
     }
 
@@ -32,12 +36,14 @@ const reducer = (type, value) => {
 
         isValid = value.length > 8
         error = "La valor debe ser mayor a 8 caracteres"
+        newValue = value.replace(spaceRegex, " ")
         break;
       }
 
     case "organization_phone": {
       isValid = value.length > 6 && value.length < 17
       error = "El número de contacto no es válido"
+      newValue = value.replace(spaceRegex, "").replace(stringRegex, "")
       break;
     }
   }
@@ -46,7 +52,8 @@ const reducer = (type, value) => {
 
   return {
     isValid,
-    error
+    error,
+    newValue
   }
 }
 
@@ -54,28 +61,32 @@ export default reducer
 
 export const validateInputs = ({ targets, currentTarget }) => {
 
-  let isFormValid = true
-  let errorMessage = ""
-
-  const { isValid, error } = reducer(currentTarget.dataset.validate, currentTarget.value)
+  const { isValid, error, newValue } = reducer(currentTarget.dataset?.type, currentTarget?.value)
   currentTarget.dataset.validate = isValid
   currentTarget.dataset.valid = error
 
-  for (const target of targets) {
+  let isFormValid = isValid
+  let errorMessage = error
 
-    if (!target.dataset?.validate || !target.dataset?.valid) continue;
-    const { isValid, error } = reducer(target.dataset.validate, target.value)
+  if (isValid) {
+    for (const target of targets) {
 
-    if (!isValid) {
-      isFormValid = false
-      errorMessage = error;
+      if (!target.dataset?.type || !target.dataset?.valid) continue;
+      const { isValid, error } = reducer(target.dataset.type, target.value)
 
-      break;
+      if (!isValid) {
+        isFormValid = false
+        errorMessage = error;
+
+        break;
+      }
     }
   }
 
+
   return {
     isFormValid,
-    errorMessage
+    errorMessage,
+    newValue
   }
 }

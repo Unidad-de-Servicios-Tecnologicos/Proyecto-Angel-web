@@ -38,54 +38,55 @@ require '../templates/navbar.php';
                                     <form class="col s12" id="mainForm">
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput" class="form-label">Años de experiencia</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput" name="años_de_experiencia" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" name="años_de_experiencia" data-type="experience_years" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Nombre de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="nombre_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="nombre_de_la_or" data-type="organization_name" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput" class="form-label">Sigla de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput" name="sigla_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" name="sigla_de_la_or" data-type="organization_acronym" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Nit de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="nit_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="nit_de_la_or" data-type="nit_de_la_or" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput" class="form-label">Cargo en la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput" name="cargo_en_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" name="cargo_en_la_or" data-type="position_in_organization" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Naturaleza de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="naturaleza_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="naturaleza_de_la_or" data-type="organization_nature" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Clase de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="clase_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="clase_de_la_or" data-type="organization_class" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Ciudad de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="ciudad_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="ciudad_de_la_or" data-type="organization_city" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Departamento de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="departamento_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="departamento_de_la_or" data-type="organization_department" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Dirección de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="direccion_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="direccion_de_la_or" data-type="organization_address" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Teléfono de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="telefono_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="telefono_de_la_or" data-type="organization_phone" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Página de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="pagina_de_la_or" data-validate="error" data-valid="" required>
+                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="pagina_de_la_or" data-type="organization_website" data-valid="" required>
                                         </div>
-                                        <div class="mt-4 mb-0" data-on-click='submit'>
-                                            <input class="btn btn-primary" type="submit" id="registro" data- value="Registrar" name="submit" />
+                                        <div class="mt-4 mb-0">
+                                            <input class="btn btn-primary" type="submit" id="registro" data- value="Registrar" name="submit" data-on-click='submit' />
+                                            <p></p>
                                         </div>
 
 
