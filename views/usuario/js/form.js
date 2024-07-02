@@ -1,57 +1,92 @@
+import { getCities, getDepartments } from "../../../data/countryInformation.js";
+import { CustomSelect } from "../../../public/js/dom-components/index.js";
 import { selector, useFetch } from "../../../public/js/helpers/index.js"
 import { validateInputs } from "../../../public/js/helpers/reducer.js";
 
-const selectorForm = selector("#mainForm")
-selectorForm.children = selectorForm.entity.querySelectorAll("input");
+document.addEventListener("DOMContentLoaded", async () => {
+  const selectorForm = selector("#mainForm")
+  selectorForm.children = selectorForm.entity.querySelectorAll("input");
 
-console.log("Zips")
-selectorForm.entity.onsubmit = async (event) => {
-  event.preventDefault()
-  const formData = new FormData(event.target)
-  const data = Object.fromEntries(formData)
+  const departments = await getDepartments()
 
-  const { result } = await useFetch({
-    url: "../../controllers/UserOrganizationController.php?type=create",
-    getJson: true,
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
+  const departmentSelect = new CustomSelect({
+    values: departments.result,
+    sectionContainer: document.querySelector("#sectionContainer-department"),
+    valueStructure: "name"
+  })
+
+  const citySelect = new CustomSelect({
+    values: [],
+    sectionContainer: document.querySelector("#sectionContainer-city"),
+    valueStructure: "name"
+  })
+
+  departmentSelect.onSelectChange = async ({ id }) => {
+
+    if (departmentSelect.hasError) return
+
+    const { result } = await getCities(id)
+    citySelect.setValues(result)
+  }
+
+  selectorForm.entity.onsubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const data = Object.fromEntries(formData)
+
+    if (departmentSelect.hasError) {
+      alert("El departamento ingresado no existe")
+      return
     }
-  })
 
-  if (result?.props) {
-    alert("Datos ingresados correctamente");
+    else if (citySelect.hasError) {
+      alert("La ciudad ingresada no existe")
+      return
+    }
 
-    const inputs = selectorForm.entity.querySelectorAll("input")
-
-    Array.from(inputs).forEach(input => {
-
-      if (!data[input.name]) return
-
-      input.value = data[input.name];
-      input.disabled = true
+    const { result } = await useFetch({
+      url: "../../controllers/UserOrganizationController.php?type=create",
+      getJson: true,
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
-  }
-}
 
-selectorForm.entity.oninput = (event) => {
+    if (result?.props) {
+      alert("Datos ingresados correctamente");
 
-  const { target } = event
+      const inputs = selectorForm.entity.querySelectorAll("input")
 
-  const { errorMessage, isFormValid, newValue } = validateInputs({
-    currentTarget: target,
-    targets: selectorForm.children,
-  })
+      Array.from(inputs).forEach(input => {
 
-  target.value = newValue
-  console.log("New value: ", newValue)
-  selectorForm.submit.disabled = !isFormValid
+        if (!data[input.name]) return
 
-  if (!isFormValid) {
-    selectorForm.submit.parentElement.querySelector("p").textContent = `Error: ${errorMessage}`
-    return
+        input.value = data[input.name];
+        input.disabled = true
+      })
+    }
   }
 
-  selectorForm.submit.parentElement.querySelector("p").textContent = ""
-}
+  selectorForm.entity.oninput = (event) => {
+
+    const { target } = event
+
+    const { errorMessage, isFormValid, newValue } = validateInputs({
+      currentTarget: target,
+      targets: selectorForm.children,
+    })
+
+    target.value = newValue
+    selectorForm.submit.disabled = !isFormValid
+
+    if (!isFormValid) {
+      selectorForm.submit.parentElement.querySelector("p").textContent = `Error: ${errorMessage}`
+      return
+    }
+
+    selectorForm.submit.parentElement.querySelector("p").textContent = ""
+  }
+
+})

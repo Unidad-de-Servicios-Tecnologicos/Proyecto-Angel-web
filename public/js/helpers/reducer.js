@@ -71,7 +71,7 @@ export const validateInputs = ({ targets, currentTarget }) => {
   if (isValid) {
     for (const target of targets) {
 
-      if (!target.dataset?.type || !target.dataset?.valid) continue;
+      if (!target.dataset?.type) continue;
       const { isValid, error } = reducer(target.dataset.type, target.value)
 
       if (!isValid) {

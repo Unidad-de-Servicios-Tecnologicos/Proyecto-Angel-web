@@ -20,6 +20,7 @@ require '../templates/navbar.php';
     <link rel="stylesheet" href="../../assets/css/main.css">
 
     <link rel="stylesheet" href="../../plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../styles/user-account.css" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
@@ -65,12 +66,21 @@ require '../templates/navbar.php';
                                             <input type="text" class="form-control" id="formGroupExampleInput2" name="clase_de_la_or" data-type="organization_class" data-valid="" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="formGroupExampleInput2" class="form-label">Ciudad de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="ciudad_de_la_or" data-type="organization_city" data-valid="" required>
+                                            <div class="section-container" id="sectionContainer-department">
+
+                                                <input placeholder="Departamento de la organización" type="text" class="form-control" id="formGroupExampleInput2" name="departamento_de_la_or" data-type="organization_department" data-valid="" required>
+                                                <div class="section-elements" id="sectionElement">
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div class="mb-3">
-                                            <label for="formGroupExampleInput2" class="form-label">Departamento de la organización</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput2" name="departamento_de_la_or" data-type="organization_department" data-valid="" required>
+                                            <div class="section-container" id="sectionContainer-city">
+
+                                                <input placeholder="Ciudad de la organización" type="text" class="form-control" id="formGroupExampleInput2" name="ciudad_de_la_or" data-type="organization_city" data-valid="" required>
+                                                <div class="section-elements" id="sectionElement">
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput2" class="form-label">Dirección de la organización</label>
@@ -84,8 +94,8 @@ require '../templates/navbar.php';
                                             <label for="formGroupExampleInput2" class="form-label">Página de la organización</label>
                                             <input type="text" class="form-control" id="formGroupExampleInput2" name="pagina_de_la_or" data-type="organization_website" data-valid="" required>
                                         </div>
-                                        <div class="mt-4 mb-0">
-                                            <input class="btn btn-primary" type="submit" id="registro" data- value="Registrar" name="submit" data-on-click='submit' />
+                                        <div class="mt-4 mb-0 submit-form-styles">
+                                            <input class="btn btn-primary" type="submit" id="registro" data- value="Registrar" name="submit" data-on-click='submit' disabled />
                                             <p></p>
                                         </div>
 

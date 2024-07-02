@@ -6,6 +6,8 @@ $type = $_GET["type"];
 
 $service = new UserOrganizationService();
 
+session_start();
+
 switch ($type) {
 
   case "create": {
@@ -16,7 +18,9 @@ switch ($type) {
 
       if (json_last_error() === JSON_ERROR_NONE) {
 
-        $created = $service->createOne($data);
+        $created = $service->createOne(array_merge($data, [
+          "usuario_id" => $_SESSION["id_usuario"]
+        ]));
 
         echo json_encode(['status' => 'success', 'message' => 'Data received successfully!!', "props" => $created]);
       } else {

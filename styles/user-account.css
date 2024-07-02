@@ -1,0 +1,52 @@
+.section-elements {
+
+  background-color: #FFF;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 7px;
+  transition: opacity 0.3s;
+  overflow: auto;
+  height: 8rem;
+}
+
+.section-elements>p {
+
+  margin: 0.5rem 0;
+  cursor: pointer;
+  padding: 2px;
+  transition: background, transform 0.3s;
+
+}
+
+.section-elements>p:hover {
+
+  background-color: rgb(218, 218, 218);
+}
+
+.section-elements>p:active {
+
+  transform: scale(0.95);
+}
+
+.section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.select-opacity {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.submit-form-styles {
+
+  position: fixed;
+  bottom: 1%;
+  background-color: #FFF;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

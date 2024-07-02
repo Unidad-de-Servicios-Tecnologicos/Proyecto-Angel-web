@@ -29,7 +29,7 @@ class UserOrganizationService
       "direccion_de_la_or" => $direccion_de_la_or,
       "telefono_de_la_or" => $telefono_de_la_or,
       "pagina_de_la_or" => $pagina_de_la_or,
-      // "usuario_id" => $usuario_id
+      "usuario_id" => $usuario_id
     ] = $data;
 
     $model = new UserOrganization(
@@ -44,7 +44,7 @@ class UserOrganizationService
       $direccion_de_la_or,
       $telefono_de_la_or,
       $pagina_de_la_or,
-      "1"
+      $usuario_id
     );
 
     return $this->userOrganizationService->createOne($model);
