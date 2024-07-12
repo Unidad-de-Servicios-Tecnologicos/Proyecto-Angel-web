@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+
+  * {
+    box-sizing: border-box;
+  }
+  .data-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  .card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 300px;
+  margin: 1rem;
+  padding: 1rem;
+  position: relative;
+  width: 300px;
+}
+
+.card-1 {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card-1:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.data-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-child-buttons {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.right-section {
+
+  position: fixed;
+  right: 0;
+  left: 100%;
+  top: 0;
+  bottom: 0;
+  color: #FFF;
+  background-color: #2E2827;
+  transition: left 0.5s;
+  height: 100%;
+}
+
+.right-section-display {
+
+  left: 60%;
+}
+
+.right-section-close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: darkred;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.right-section-close:hover {
+  background-color: red;
+}
+
+.right-section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: inherit;
+  width: 90%;
+}
+
+.right-section-body {
+  background-color: #6B7F8B;
+  width: inherit;
+  min-height: 50%;
+  max-height: 50%;
+  overflow: auto;
+  padding: 1rem;
+  border-radius: 7px;
+
+}
+
+.right-section-footer {
+
+  border-top: #fff solid 1px;
+  width: inherit;
+}
+
+.HTML-style-1-container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 600px;
+      padding: 20px;
+    }
+    .HTML-style-1-field {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .HTML-style-1-field:last-child {
+      border-bottom: none;
+    }
+    .HTML-style-1-label {
+      font-weight: bold;
+      color: #2E2827;
+    }
+    .HTML-style-1-value {
+      color: #6B7F8B;
+    }
+</style>
+<body>
+  
+  <h2>Use Data</h2>
+
+  <main id="main"></main>
+  <!-- <ul class="data-container">
+    <li class="card card-1 data-child">
+
+      <div>
+        <h4>User name</h4>
+        <h5>User nickname</h5>
+        <p>User email</p>
+      </div>
+
+      <div class="data-child-buttons">
+        <button>Ver información completa</button>
+        <button>Ver encuestas respondidas</button>
+      </div>
+
+    </li>
+  </ul> -->
+
+  <section class="right-section" id="dsfgvsdfgesf52g443">
+    <button class="right-section-close" data-right-component-provider-on-click="onHide">X</button>
+    <div class="right-section-content">
+
+      <div class="right-section-body" data-right-component-provider="body">
+        <h2>Body</h2>
+      </div>
+      
+      <div class="right-section-footer">
+      </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="./ejm.js" type="module"></script>
+</body>
+</html>
