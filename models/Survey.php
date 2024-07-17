@@ -1,7 +1,9 @@
 
 <?php
 
-require_once "../includes/conexion.php";
+$pathName = realpath(__DIR__ . "/..");
+
+require_once "$pathName/includes/conexion.php";
 class SurveyModel extends Connection
 {
 
@@ -23,5 +25,17 @@ class SurveyModel extends Connection
     }
 
     return $data;
+  }
+
+  public function getPlainSurveysByUserId($userId)
+  {
+
+    if (!$userId) return [];
+
+    $query = "SELECT * FROM encuestas WHERE id_usuario = $userId;";
+
+    $result = parent::getConn()->query($query);
+
+    return $result;
   }
 }

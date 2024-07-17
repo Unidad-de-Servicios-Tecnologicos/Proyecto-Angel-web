@@ -27,6 +27,10 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `encuestas`
 --
 
+CREATE DATABASE sistema_encuestas;
+
+USE sistema_encuestas;
+
 CREATE TABLE `encuestas` (
   `id_encuesta` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,

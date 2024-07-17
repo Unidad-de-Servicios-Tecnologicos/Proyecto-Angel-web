@@ -37,7 +37,20 @@ export class UseSelector {
     this.onClickContext = {}
   }
 
-  onClick = ({ ...events }) => {
+  clickContextSetter(name, fn) {
+
+    if (this.onClickContext[name]) {
+      this.onClickContext[name] = fn
+    }
+  }
+
+  pushToClickContext(name, fn) {
+    if (this.onClickContext[name]) return
+
+    this.onClickContext[name] = fn
+  }
+
+  onClick = ({ asParent = false, ...events }) => {
     if (this.isOnClickEventSet) {
 
       this.onClickContext = {
@@ -53,7 +66,11 @@ export class UseSelector {
     this.entity.addEventListener("click", event => {
 
       const { target } = event
-      const attribute = target.dataset[this.datasetAttribute + "OnClick"]
+      let attribute = target.dataset[this.datasetAttribute + "OnClick"]
+
+      if (!attribute && asParent) {
+        attribute = target.closest(`[data-${this.dataset}-on-click]`)?.dataset[this.datasetAttribute + "OnClick"] ?? ""
+      }
 
       if (typeof this.onClickContext[attribute] === "function") this.onClickContext[attribute]({ event, target })
     })
@@ -74,16 +91,15 @@ export class UseSelector {
   getId = (target) => {
 
     const attribute = `[data-${this.dataset}-id]`
-    console.log(attribute)
-    let element = target.dataset[this.datasetAttribute + "Id"] ?? target.closest(attribute)
+    let id = target?.dataset[this.datasetAttribute + "Id"] ?? target.closest(attribute)?.dataset[this.datasetAttribute + "Id"]
 
-    if (!element) {
-      element = target.querySelector(attribute)
+    if (!id) {
+      id = target.querySelector(attribute)?.dataset?.[this.datasetAttribute + "Id"] ?? null
     }
 
     return {
-      element,
-      id: element?.dataset?.[this.datasetAttribute + "Id"] ?? null
+      element: target,
+      id
     }
   }
 }

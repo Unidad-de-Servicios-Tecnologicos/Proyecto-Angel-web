@@ -1,0 +1,98 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .right-section {
+
+        position: fixed;
+        right: 0;
+        left: 100%;
+        top: 0;
+        bottom: 0;
+        color: #FFF;
+        background-color: #2E2827;
+        transition: left 0.5s;
+        height: 100%;
+    }
+
+    .right-section-display {
+
+        left: 40%;
+    }
+
+    .right-section-close {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: darkred;
+        border: none;
+        color: white;
+        font-size: 1rem;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .right-section-close:hover {
+        background-color: red;
+    }
+
+    .right-section-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: inherit;
+        width: 100%;
+    }
+
+    .right-section-body-container {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        min-height: 80%;
+        max-height: 80%;
+        width: 90%;
+        overflow: auto;
+    }
+
+    .right-section-body {
+        overflow: auto;
+        background-color: #6B7F8B;
+        width: 100%;
+        min-height: inherit;
+        max-height: inherit;
+        padding: 1rem;
+        border-radius: 7px;
+
+    }
+
+    .right-section-body>* {
+        width: 100%;
+    }
+
+    .right-section-footer {
+
+        border-top: #fff solid 1px;
+        width: inherit;
+    }
+</style>
+
+<section class="right-section" id="dsfgvsdfgesf52g443">
+    <button class="right-section-close" data-right-component-provider-on-click="onHide">X</button>
+    <div class="right-section-content">
+
+        <div data-right-component-provider="bodies" class="right-section-body-container">
+
+            <div class="right-section-body" data-right-component-provider="body"
+                data-right-component-provider-on-click="handleRightSectionProvider"
+                data-right-component-provider-id-body="initial">
+            </div>
+        </div>
+
+        <div class="right-section-footer">
+        </div>
+    </div>
+    </div>
+</section>

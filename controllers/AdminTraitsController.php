@@ -37,7 +37,7 @@ switch ($type) {
       $surveyId = $_GET["surveyId"] ?? null;
 
       echo json_encode([
-        "surveyQuestions" => $question->getQuestionBySurveyId($userId)
+        "surveyQuestions" => $question->getQuestionBySurveyId($surveyId)
       ]);
 
       break;

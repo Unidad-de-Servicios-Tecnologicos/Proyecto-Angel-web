@@ -1,0 +1,28 @@
+.HTML-style-1-container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.HTML-style-1-field {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.HTML-style-1-field:last-child {
+    border-bottom: none;
+}
+
+.HTML-style-1-label {
+    font-weight: bold;
+    color: #2E2827;
+}
+
+.HTML-style-1-value {
+    color: #6B7F8B;
+}
