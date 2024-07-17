@@ -1,13 +1,29 @@
 
 <?php
 
-require_once "../models/User.php";
-require_once "../models/Survey.php";
-require_once "../models/Question.php";
+$outerPath = realpath(__DIR__ . "/..");
 
+require_once "$outerPath/models/User.php";
+require_once "$outerPath/models/Survey.php";
+require_once "$outerPath/models/Question.php";
+require_once "$outerPath/guards/guardTraits.php";
+require_once "$outerPath/guards/authentication.guard.php";
+
+$traits = new UseGuardTrait();
+
+$authGuard = new AuthenticationGuard();
+
+// if (!$authGuard->isAdminBySessionIdAndReturnBool()) {
+// 
+//   http_response_code(403);
+//   echo json_encode([
+//     "message" => "Acción no permitida"
+//   ]);
+//   exit;
+// }
+
+$traits->startSession();
 $type = $_GET["type"];
-
-session_start();
 
 switch ($type) {
 

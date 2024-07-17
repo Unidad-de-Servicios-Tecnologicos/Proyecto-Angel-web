@@ -7,9 +7,15 @@ export default class RightSectionBarComponentProvider {
     //     display: "right-section-display"
     // }
 
-    constructor({ voidWhenClose = false }) {
+    constructor({ voidWhenClose = false, handleBodyMove = {
+        move: false,
+        bodyId: "",
+        isWidthTransitionSet: false,
+        initialWidthInPercentage: ""
+    } }) {
 
         this.dataset = "right-component-provider"
+        this.handleBodyMove = handleBodyMove
         this.voidWhenClose = voidWhenClose
         this.useSelector = new UseSelector({
             id: this.#id,
@@ -27,6 +33,28 @@ export default class RightSectionBarComponentProvider {
         this.body = body
         this.bodies = bodies
         this.createdBodies = ["initial"]
+
+    }
+
+    _moveBody = (percentage) => {
+
+        if (!this.handleBodyMove.move) return
+
+        const parent = document.querySelector(this.handleBodyMove.bodyId)
+
+        if (!this.handleBodyMove.isWidthTransitionSet) {
+
+            parent.style.transition = "width 0.3s"
+            this.handleBodyMove.isWidthTransitionSet = true
+        }
+
+        const currentWidth = +(parent.style.width || this.handleBodyMove.initialWidthInPercentage).slice(0, -1)
+
+        parent.style.width = (currentWidth - percentage) + "%"
+    }
+
+    _setBodyToItsOriginalWidth = () => {
+        document.querySelector(this.handleBodyMove.bodyId).style.width = this.handleBodyMove.initialWidthInPercentage
 
     }
 
@@ -56,11 +84,13 @@ export default class RightSectionBarComponentProvider {
         if (this.voidWhenClose) {
             this.voidBodyChildren()
         }
+
+        this._setBodyToItsOriginalWidth()
     }
 
     voidBodyChildren = () => {
 
-        const children = Array.from(this.bodies.children)
+        const children = Array.from(this.bodies.children ?? [])
         for (let i = 1; i < children.length; i++) {
             this.createdBodies = this.createdBodies.filter(id => id !== children[i].dataset[this.useSelector.datasetAttribute + "IdBody"])
 
@@ -75,6 +105,7 @@ export default class RightSectionBarComponentProvider {
         this.isActive = true
         this.useSelector.entity.style.left = percentage
 
+        this._moveBody(+percentage.slice(0, -1))
         return this._returnContent()
     }
 
@@ -100,7 +131,7 @@ export default class RightSectionBarComponentProvider {
         this.useSelector.entity.style.left = finalPercentage + "%"
     }
 
-    addBody = (_bodies = [], { percentagePerChild = 10, replaceWhenEqual = false }) => {
+    addBody = (_bodies, { percentagePerChild = 10, replaceWhenEqual = false }) => {
 
         for (const { id, body, onClick = "" } of _bodies) {
 
@@ -118,6 +149,8 @@ export default class RightSectionBarComponentProvider {
             }))
 
             this.expandSectionBar(percentagePerChild)
+            this._moveBody(percentagePerChild)
+
         }
     }
 

@@ -1,7 +1,8 @@
 
 <?php
 
-require_once "../includes/conexion.php";
+$outerPath = realpath(__DIR__ . "/..");
+require_once "$outerPath/includes/conexion.php";
 
 class User
 {
@@ -49,6 +50,16 @@ class UserModel extends Connection
 
     $query = "SELECT * FROM usuarios u LEFT JOIN organizacion o 
     ON o.usuario_id = u.id_usuario WHERE u.id_usuario = $userId LIMIT 1;";
+
+    $result = parent::getConn()->query($query);
+
+    return $result->fetch_assoc();
+  }
+
+  public function getUserById($userId)
+  {
+
+    $query = "SELECT * FROM usuarios WHERE id_usuario = $userId LIMIT 1;";
 
     $result = parent::getConn()->query($query);
 

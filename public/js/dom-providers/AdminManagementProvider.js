@@ -1,13 +1,13 @@
-import { HTMLStructureProvider } from "./public/js/dom-providers/index.js";
-import { selector, useFetch } from "./public/js/helpers/index.js";
-import { UseSelector } from "./public/js/helpers/selector.js";
+import { useFetch } from "../helpers/index.js"
+import { UseSelector } from "../helpers/selector.js"
+import HTMLStructureProvider from "./HTMLStructureProvider.js"
+import RightSectionBarComponentProvider from "./RightSectionBarProvider.js"
 
-
-class AdminUserManagementProvider {
+export default class AdminManagementProvider {
 
   #providerId = "#vfjnetriju8878bcvbg8536+"
   #API = {
-    userInformation: "./controllers/AdminTraitsController.php?type=getUsersInformation"
+    userInformation: "../../../controllers/AdminTraitsController.php?type=getUsersInformation"
   }
   #MEMO = {
     users: []
@@ -15,7 +15,13 @@ class AdminUserManagementProvider {
 
   constructor() {
 
-    this.rightSectionBarProvider = new RightSectionBarComponentProvider()
+    this.rightSectionBarProvider = new RightSectionBarComponentProvider({
+      handleBodyMove: {
+        bodyId: "#users",
+        move: true,
+        initialWidthInPercentage: "100%"
+      }
+    })
     this.HTMLComponents = new HTMLStructureProvider()
   }
 
@@ -49,6 +55,7 @@ class AdminUserManagementProvider {
 
     this.entity = document.createElement("ul")
     this.entity.id = this.#providerId
+    this.entity.className = "data-container"
 
     this.useSelector = new UseSelector({
       target: this.entity,
@@ -60,28 +67,16 @@ class AdminUserManagementProvider {
       fullUserInformation: ({ target }) => {
         const selectedUser = this.#MEMO.users.find(us => us.id_usuario === this.useSelector.getId(target).id)
 
-        this.rightSectionBarProvider.active()
+        this.rightSectionBarProvider
+          .active()
           .content.innerHTML = this.HTMLComponents.userOrganizationValuesHTML(selectedUser)
       },
 
-      getUserSurveys: () => {
-        //TODO
+      getUserSurveys: ({ target }) => {
+        const { id } = this.useSelector.getId(target)
+        location.href = `../surveys/index.php?userId=${id}`
       }
     })
 
   }
 }
-const provider = new AdminUserManagementProvider()
-
-provider.init()
-
-document.querySelector("#main").append(provider.entity)
-
-const { result } = await useFetch({
-  url: "./controllers/AdminTraitsController.php?type=getUsersInformation",
-  method: "GET",
-  getJson: true
-})
-
-console.log("result: ", result)
-provider.updateAllUserInformation()

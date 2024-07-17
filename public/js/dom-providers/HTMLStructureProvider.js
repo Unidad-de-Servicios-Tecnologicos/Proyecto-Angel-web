@@ -37,8 +37,8 @@ export default class HTMLStructureProvider {
         </div>
   
         <div class="${buttons}" data-admin-user-management-provider-id='${id}'>
-          <button data-admin-user-management-provider-on-click='fullUserInformation'>Ver información completa</button>
-          <button data-admin-user-management-provider-on-click='getUserSurveys'>Ver encuestas respondidas</button>
+          <button data-admin-user-management-provider-on-click='fullUserInformation' class='btn btn-primary'>Ver información completa</button>
+          <button data-admin-user-management-provider-on-click='getUserSurveys' data-admin-user-management-provider-id='${id}' class='btn btn-secondary'>Ver encuestas respondidas</button>
         </div>
       </li>
     `
@@ -67,91 +67,29 @@ export default class HTMLStructureProvider {
       `
     }
 
-    userOrganizationValuesHTML = ({
-        telefono,
-        celular,
-        años_de_experiencia,
-        nombre_de_la_or,
-        sigla_de_la_or,
-        cargo_en_la_or,
-        naturaleza_de_la_or,
-        clase_de_la_or,
-        ciudad_de_la_or,
-        departamento_de_la_or,
-        direccion_de_la_or,
-        telefono_de_la_or,
-        pagina_de_la_or,
-    }) => {
+    userOrganizationValuesHTML = (obj) => {
 
         const { userOrganizationHTML } = this
 
-        const children = userOrganizationHTML({
-            label: "Telefono del usuario",
-            value: telefono
-        })
-            +
-            userOrganizationHTML({
-                label: "Celular del usuario",
-                value: celular
+        let CHILDREN = ""
+
+        const convertedObject = this.objectTransformer.userOrganization(obj)
+
+        for (const _key in convertedObject) {
+
+            const { key, value } = convertedObject[_key]
+
+            if (!value) continue;
+
+            CHILDREN += userOrganizationHTML({
+                label: key,
+                value
             })
-            +
-            userOrganizationHTML({
-                label: "Años de experiencia del usuario",
-                value: años_de_experiencia
-            })
-            +
-            userOrganizationHTML({
-                label: "Nombre de la organización",
-                value: nombre_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Sigla de la organización",
-                value: sigla_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Cargo en la organización",
-                value: cargo_en_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Naturaleza de la organización",
-                value: naturaleza_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Clase de la organización",
-                value: clase_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Ciudad de la organización",
-                value: ciudad_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Departamento de la organización",
-                value: departamento_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Dirección de la organización",
-                value: direccion_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Teléfono de la organización",
-                value: telefono_de_la_or
-            })
-            +
-            userOrganizationHTML({
-                label: "Página de la organización",
-                value: pagina_de_la_or
-            })
+        }
+
 
         return this.userOrganizationParentHTML({
-            children
+            children: CHILDREN
         })
     }
 
