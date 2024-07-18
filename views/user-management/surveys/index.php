@@ -14,7 +14,7 @@ $userId = $_GET["userId"];
 $selectedUser = $adminService->getUserInformationById($userId);
 $surveys = $adminService->getSurveysByUserId($userId);
 
-$authGuard->notPermittedHTML($surveys && $selectedUser);
+$authGuard->notPermittedHTML($surveys && $selectedUser, "El usuario no tiene encuestas");
 
 ?>
 
