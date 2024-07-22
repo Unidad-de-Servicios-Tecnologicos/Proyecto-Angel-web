@@ -1,13 +1,3 @@
-<?php
-
-$pathName = realpath(__DIR__ . "/..");
-require "../../../guards/authentication.guard.php";
-
-$authGuard = new AuthenticationGuard();
-$authGuard->isAdminBySessionId();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 

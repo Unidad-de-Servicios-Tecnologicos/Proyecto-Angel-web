@@ -1,118 +1,135 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="shortcut icon" href="../../assets/imagenes/LOGO FINAL.png" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/style2.css">
-    
+  <meta charset="utf-8">
+  <title>Registro de usuario</title>
+  <link rel="shortcut icon" href="../../assets/imagenes/LOGO FINAL.png">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/styles2.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/login.css">
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
 </head>
-
 <style>
     .warn-alert {
         width: auto;         
         color: #ff4d4d;
         margin: 10px 0;
-}
 
+        
+}
 </style>
+
+
 <body>
-<nav class="sb-topnav navbar navbar-expand navbar-dark nav">
-        <div class="container">
-                <a href="../../index.php" class="nav-logo">
-                    <img src="../../assets/imagenes/Logo Angel - Color_b_n-01.png" alt="Logo de la empresa">
-                </a>
-                <div class="">
-                    <!-- Button INICIO SESION -->
-                    <a href="login.php" class="btn bg-white text-dark" role="button""><b>INICIO DE SESION</b></a>
-                </div>
+  <div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+      <div class="loginbackground box-background--white padding-top--64">
+        <div class="loginbackground-gridContainer">
+          <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+            </div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+          </div>
         </div>
-    </nav>
-        <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
-                <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-7">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5 overflow-auto">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Crear usuario</h3></div>
-                                    <div class="card-body overflow-auto">
-                                        <form action="../../includes/registrar.php" id="onRegister" class='overflow-auto' method="POST">
-                                            <div class="row mb-3">
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" name="inputFirstName" id="inputFirstName" type="text" placeholder="Enter your first name" required/>
-                                                        <label for="inputFirstName">Nombres</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-floating">
-                                                        <input class="form-control" name="inputLastName" id="inputLastName" type="text" placeholder="Enter your last name" required/>
-                                                        <label for="inputLastName">Apellidos</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-md-4">
-                                                    <div class="form-floating mb-3 mb-md-0">
-                                                        <input class="form-control" name="id" id="id" type="text" placeholder="Enter your first name" required/>
-                                                        <label for="inputFirstName">Cedula</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-floating">
-                                                        <input class="form-control" name="phone" id="inputLastName" type="text" placeholder="Enter your last name"/>
-                                                        <label for="inputLastName">Numero fijo</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-floating">
-                                                        <input class="form-control" name="phoneNumber" id="inputLastName" type="text" placeholder="Enter your last name" required/>
-                                                        <label for="inputLastName">Numero celular</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" name="inputEmail" id="inputEmail" type="email" placeholder="name@example.com" required/>
-                                                <label for="inputEmail">Email address</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" name="password" id="inputPassword6" type="password" placeholder="Crear contraseña" aria-describedby="passwordHelpInline" required/>
-                                                <label for="inputPassword6">Contraseña</label>
-                                                <div class="col-auto">
-                                                    <span id="passwordHelpInline" class="form-text">
-                                                    Debe tener entre  8 y 100 Caracteres.
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="mt-4 mb-0">
-                                                <input class="btn btn-primary" type="submit" id="registro" value="Registrar" name ="submit"/>
-                                            </div>
-                                            
-                                        </form>
-                                        
-                                    </div>
+      </div>
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+          <h1>PROYECTO ANGEL</h1>
+        </div>
+
+        <div class="formbg-outer">
+          <div class="formbg2">
+            <div class="formbg-inner padding-horizontal--48">
+              <span class="padding-bottom--15">REGISTRO DE USUARIO</span>
+                    <form class="form-signin" action="../../includes/registrarUsuario.php" id="onRegister" method="POST" >
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" name="nombres" id="nombres" type="text" required/>
+                                    <label for="nombres">Nombres</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" name="apellidos" id="apellidos" type="text" required/>
+                                    <label for="apellidos">Apellidos</label>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </main>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" name="id_usuario" id="id_usuario" type="text" required/>
+                                    <label for="id_usuario">Cedula</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input class="form-control" name="telefono" id="telefono" type="text" required/>
+                                    <label for="telefono">Numero fijo</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating">
+                                    <input class="form-control" name="celular" id="celular" type="text" required/>
+                                    <label for="celular">Numero celular</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" name="email" id="email" type="email" autocomplete="off" required/>
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" name="clave" id="clave" type="password" aria-describedby="clave" required/>
+                            <label for="clave">Contraseña</label>
+                            <div class="col-auto">
+                              <span id="clave" class="form-text">
+                                Debe tener entre  8 y 100 Caracteres.
+                              </span>
+                            </div>     
+                        </div>       
+                        <div class="mt-4 mb-0">
+                            <center><button class="btn btn-primary" type="submit">Guardar</button></center>
+                        </div>
+                        <br>
+                        <div class="reset-pass">
+                              <a href="../../index.php">Inicio</a>
+                              <a href="login.php">Inicio de sesion</a>
+                        </div>
+                    </form>
             </div>
-            
+          </div>
         </div>
-        <br>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <!-- <script src="js/scripts.js"></script> -->
-        <script src="../../public/js/register.js"></script>
-    </body>
+      </div>
+    </div>
+  </div>
+</body>
+	<!-- js -->
+<script src="../../public/js/register.js"></script>
 </html>
 
-<?php
 
-include_once '../templates/footer.php';
-
-?>

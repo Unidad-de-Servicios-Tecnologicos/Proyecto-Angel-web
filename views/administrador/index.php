@@ -60,19 +60,19 @@ $fecha_inicio = $date->format('Y-m-d H:i:s');
         </div>
         <br>
         <br>
-        <div class="col-12 row">
-          <button class="btn btn-success col-6" id="boton_agregar">
+        <div class="row justify-content-around">
+          <button class="btn btn-success col-4 " id="boton_agregar">
             <b>Agregar Encuesta</b>
           </button>
-          <button class="btn btn-primary col-6">
-            <a href="../user-management/users/index.php" class="a-tag">Información de usuarios</a>
+          <button class="btn btn-primary col-4 ">
+          <b><a href="../user-management/users/index.php" class="a-tag">Información de usuarios</a></b>
           </button>
         </div>
       </div>
     </div>
     <hr />
     <div class="row">
-      <div class="col-md-12">
+      <div class="">
         <h4>Encuestas:</h4>
         <div class="table-responsive">
           <div id="tabla_encuestas"></div>

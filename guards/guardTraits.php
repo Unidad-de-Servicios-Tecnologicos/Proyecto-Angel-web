@@ -34,7 +34,7 @@ trait guardTraits
     <?php
   }
 
-  public function notPermittedHTML($bool, $text)
+  public function notPermittedHTML($bool)
   {
     if (!$bool) {
 
@@ -50,7 +50,7 @@ trait guardTraits
       </head>
 
       <body>
-        <h2><?php echo $text ?? ""; ?></h2>
+        <h2>OPERACIÓN NO PERMITIDA</h2>
       </body>
 
       </html>

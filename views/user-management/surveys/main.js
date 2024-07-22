@@ -93,8 +93,7 @@ selector.onClick({
 
         rightSectionBarProvider
             .active()
-            .content
-            .innerHTML = table
+            .content.innerHTML = table
 
     }
 })
