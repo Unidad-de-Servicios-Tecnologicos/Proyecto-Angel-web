@@ -76,3 +76,14 @@ const onValidate = (element = String("")) => ({
     id: () => element.length >= 7 && element.length <= 15,
     password: () => new RegExp(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{7,100}$/g).test(element)
 })
+
+$('#submit').click(function(){
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+});

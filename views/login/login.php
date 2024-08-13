@@ -62,7 +62,7 @@
           <div class="formbg">
             <div class="formbg-inner padding-horizontal--48">
               <span class="padding-bottom--15">Ingrese sus datos de usuario</span>
-              <form class="form-signin" action="../../includes/validacion.php" method="POST" >
+              <form class="form-signin" action="../../includes/validacion.php" method="POST" id="formLogin">
                 <div class="field padding-bottom--24">
                   <label for="email">Usuario</label>
                   <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" required autofocus name="id_usuario">
@@ -70,15 +70,12 @@
                 <div class="field padding-bottom--24">
                   <div class="grid--50-50">
                     <label for="password">Contraseña</label>
-                    <div class="reset-pass">
-                      <a href="recuperarcontraseña.php">Olvidaste la contraseña</a>
-                    </div>
                   </div>
                   <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required name="clave">
                 </div>
 
-                <div class="field padding-bottom--24">
-                  <input type="submit" name="submit" value="Ingresar">
+                <div class="field padding-bottom--24" id="liveAlertPlaceholder">
+                  <input type="submit" name="submit" value="Ingresar" id="liveAlertBtn">
                 </div>
                 <div class="reset-pass">
                       <a href="../../index.php">Inicio</a>
@@ -90,6 +87,8 @@
       </div>
     </div>
   </div>
-</body>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="../../public/js/btn.js"></script>
+</body>
 </html>

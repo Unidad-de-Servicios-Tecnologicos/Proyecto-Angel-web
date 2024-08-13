@@ -21,6 +21,7 @@ $query = "SELECT * FROM usuarios WHERE email = '$id_usuario' AND clave = '$clave
 			$_SESSION['id_usuario'] = $row['id_usuario'];
 			$_SESSION['u_usuario'] = $row['nombres'];
 			header("Location: ../views/administrador/index.php");
+			
 		} else {
 			$_SESSION['id_usuario'] = $row['id_usuario'];
 			$_SESSION['u_usuario'] = $row['nombres'];

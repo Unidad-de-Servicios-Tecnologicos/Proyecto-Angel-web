@@ -42,7 +42,6 @@
           ?>
         </b></a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="../usuario/cuenta.php">Cuenta</a>
           <a href='../../includes/cerrar_sesion.php' class='btn btn-danger' type="button" style='margin-left: 10px'><i class="fa fa-power-off fa-lg"></i></a>
         </div>
       </li>

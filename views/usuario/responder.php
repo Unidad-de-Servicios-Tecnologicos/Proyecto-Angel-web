@@ -47,7 +47,7 @@
 
 	
 <?php
-    require '../templates/navbar.php';
+    require '../templates/navbaruser.php';
 ?>
 <div class="container">  
  	<div class="container text-center" >
@@ -116,7 +116,7 @@
  	</div>
 </div>
 
-
+<br>
 
     
   <!-- Optional JavaScript -->

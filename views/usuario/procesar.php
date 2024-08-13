@@ -32,7 +32,7 @@
 <body>
 
 <?php
-    require '../templates/navbar.php';
+    require '../templates/navbaruser.php';
 ?>
 
 	<center>

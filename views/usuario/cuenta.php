@@ -1,5 +1,5 @@
 <?php
-require '../templates/navbar.php';
+    require '../templates/navbaruser.php';
 ?>
 
 <!DOCTYPE html>
@@ -94,12 +94,10 @@ require '../templates/navbar.php';
                                             <label for="formGroupExampleInput2" class="form-label">Página de la organización</label>
                                             <input type="text" class="form-control" id="formGroupExampleInput2" name="pagina_de_la_or" data-type="organization_website" data-valid="" required>
                                         </div>
-                                        <div class="mt-4 mb-0 submit-form-styles">
+                                        <div class="field padding-bottom--24">
                                             <input class="btn btn-primary" type="submit" id="registro" data- value="Registrar" name="submit" data-on-click='submit' disabled />
                                             <p></p>
                                         </div>
-
-
                                     </form>
                                 </div>
                             </div>

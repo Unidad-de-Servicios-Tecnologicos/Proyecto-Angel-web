@@ -39,7 +39,7 @@
 
 
 <?php
-    require '../templates/navbar.php';
+    require '../templates/navbaruser.php';
 ?>
 
 	<!-- Content Section -->
